@@ -1,0 +1,20 @@
+-- 
+SELECT
+	oidd_id,
+	'"'||name||'"',
+	'"'||method||'"',
+	'"'||technology||'"',
+	'"'||project||'"',
+	'"'||subproject||'"',
+	'"'||cell_line||'"',
+	'"'||cell_line_description||'"',
+	'"'||role||'"',
+	'"'||result_type||'"',
+	'"'||desired_result||'"',
+	'"'||screening_threshold||'"'
+FROM
+	assay
+ORDER BY
+	oidd_id
+	;
+--

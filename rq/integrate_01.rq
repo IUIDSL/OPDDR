@@ -1,0 +1,60 @@
+###
+# Find phenotypic assays associated with ChEMBL "Caspase-1" protein target via shared active substances.
+# Ok:  9 Oct 2015
+###
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX oidd_assay: <http://openinnovation.lilly.com/bioassay#>
+PREFIX ncats_sample: <http://rdf.ncats.nih.gov/ncgc/sample/>
+PREFIX opddr: <http://rdf.ncats.nih.gov/opddr/>
+PREFIX bao: <http://www.bioassayontology.org/bao#>
+PREFIX bioassay: <http://rdf.ncbi.nlm.nih.gov/pubchem/bioassay/>
+PREFIX substance: <http://rdf.ncbi.nlm.nih.gov/pubchem/substance/>
+PREFIX compound: <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/>
+PREFIX measureg: <http://rdf.ncbi.nlm.nih.gov/pubchem/measuregroup/>
+PREFIX endpoint: <http://rdf.ncbi.nlm.nih.gov/pubchem/endpoint/>
+PREFIX source: <http://rdf.ncbi.nlm.nih.gov/pubchem/source/>
+PREFIX descr: <http://rdf.ncbi.nlm.nih.gov/pubchem/descriptor/>
+PREFIX syno: <http://rdf.ncbi.nlm.nih.gov/pubchem/synonym/>
+PREFIX reference: <http://rdf.ncbi.nlm.nih.gov/pubchem/reference/>
+PREFIX vocabulary: <http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#>
+PREFIX cco: <http://rdf.ebi.ac.uk/terms/chembl#>
+PREFIX chembl_molecule: <http://rdf.ebi.ac.uk/resource/chembl/molecule/>
+PREFIX chembl_activity: <http://rdf.ebi.ac.uk/resource/chembl/activity/>
+PREFIX chembl_assay: <http://rdf.ebi.ac.uk/resource/chembl/assay/>
+PREFIX chembl_target: <http://rdf.ebi.ac.uk/resource/chembl/target/>
+PREFIX chembl_targetcmpt: <http://rdf.ebi.ac.uk/resource/chembl/targetcomponent/>
+PREFIX biopax3: <http://www.biopax.org/release/biopax-level3.owl#>
+PREFIX reactome: <http://identifiers.org/reactome/>
+PREFIX uniprot: <http://purl.uniprot.org/uniprot/>
+
+
+SELECT DISTINCT
+  ?target ?targetname ?assay ?assayname
+WHERE
+{
+  #phenotypic
+  ?substance obo:BFO_0000056 ?measureg .
+  ?assay bao:BAO_0000209 ?measureg .
+  ?measureg obo:OBI_0000299 ?endpoint .
+  ?endpoint obo:IAO_0000136 ?substance .
+
+  #biochemical
+  ?substance skos:exactMatch ?mol .
+  ?mol cco:hasActivity ?activity .
+  ?chembl_assay cco:hasActivity ?activity .
+  ?target cco:hasAssay ?chembl_assay .
+
+  ?target dcterms:title ?targetname .
+  FILTER (regex(?targetname, "Caspase-1", "i")) .
+  ?assay dcterms:title ?assayname .
+}
+ORDER BY ?assay

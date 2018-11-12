@@ -1,0 +1,143 @@
+#!/bin/sh
+#############################################################################
+# NPC-PD2: produce ChEMBL CSV files.
+# 
+# Get ChEMBL bioactivity data for compounds.
+# Inchi files obsoleted by UniChem mappings (PubChem CID to Chembl ID).
+# 
+# Files produced:
+#  (1) ChEMBL compounds: CHEMBL_ID, activity data.
+#  (2) ChEMBL targets: CHEMBL_ID, names, etc.
+#############################################################################
+# Where is pChEMBL score? Via REST? https://www.ebi.ac.uk/chembl/faq#faq41
+#############################################################################
+# Jeremy Yang
+#  1 May 2016
+#############################################################################
+#
+if [ "`uname -s`" = "Darwin" ]; then
+	APPDIR="/Users/app"
+elif [ "`uname -s`" = "Linux" ]; then
+	APPDIR="/home/app"
+else
+	APPDIR="/home/app"
+fi
+#
+DATADIR="`dirname $0`/data"
+#
+#set -e
+#set -x
+#
+##################################
+#Compound file, from Go_npcpd2_Compound.sh::
+###
+cpdfile="${DATADIR}/NPC-OIDD-Compound.csv"
+###
+#Extract CIDs:
+#
+csv_utils.py --i $cpdfile --coltag "PUBCHEM_CID" --extractcol \
+	|grep -v '^$' \
+	>${cpdfile}.cid
+###
+#From PubChem, via CID, get InChI, InChIKey 
+#
+pubchemfile="${DATADIR}/pubchem.sdf"
+if [ ! -e ${pubchemfile} ]; then
+	pug_rest_query.py --cids2sdf \
+		--i ${cpdfile}.cid \
+		--o ${pubchemfile}
+		--v
+else
+	printf "File exists, not overwritten: %s\n" ${pubchemfile}
+fi
+#
+pubchem_cid2inchi_file="${DATADIR}/pubchem_cid2inchi.csv"
+printf "(1) CID2INCHI FILE: %s\n" "${pubchem_cid2inchi_file}"
+inc_fields='PUBCHEM_COMPOUND_CID,PUBCHEM_IUPAC_INCHI,PUBCHEM_IUPAC_INCHIKEY'
+sdf2csv.py \
+	--i ${pubchemfile} \
+	--o ${pubchem_cid2inchi_file} \
+        --uniform --truncate --ignore_title \
+        --include --fields "$inc_fields"
+###
+#
+#Extract InChiKey:
+#
+csv_utils.py \
+	--i ${pubchem_cid2inchi_file} \
+	--coltag "PUBCHEM_IUPAC_INCHIKEY" --extractcol \
+	|grep -v '^$' \
+	>${pubchem_cid2inchi_file}.inchikey
+###
+#From Unichem, via InChIKey, get ChEMBL_ID:
+#Slow-ish!
+#
+unichemfile="${DATADIR}/unichem_inchi2chembl.csv"
+printf "(2) UNICHEM FILE: %s\n" "${unichemfile}"
+if [ ! -e ${unichemfile} ]; then
+	unichem_query.py \
+		--get_ids \
+		--idfile ${pubchem_cid2inchi_file}.inchikey \
+		--o ${unichemfile} \
+		--v
+else
+	printf "File exists, not overwritten: %s\n" ${unichemfile}
+fi
+#
+##
+csv_utils.py \
+	--i ${unichemfile} \
+	--coltag "chembl_id" --extractcol \
+	|grep -v '^$' \
+	>${unichemfile}.chemblid
+#
+###
+#From ChEMBL, via ChEMBL_ID, get bioactivity summary data including protein targets:
+#Slow!
+#
+chemblfile="${DATADIR}/chembl_activity.csv"
+printf "(3) CHEMBL FILE (activity): %s\n" "${chemblfile}"
+if [ ! -e ${chemblfile} ]; then
+	chembl_query.py \
+		--get_cpdactivity \
+		--idfile ${unichemfile}.chemblid \
+		--o ${chemblfile}
+else
+	printf "File exists, not overwritten: %s\n" ${chemblfile}
+fi
+#
+#
+csv_utils.py --i ${chemblfile} --coltag "assay_type" --colvalcounts
+#csv_utils.py --i ${chemblfile} --coltag "bioactivity_type" --colvalcounts
+#csv_utils.py --i ${chemblfile} --coltag "target_confidence" --colvalcounts
+###
+#
+##
+chembl_target_file="${DATADIR}/chembl_target.csv"
+printf "(4) CHEMBL file (target): %s\n" $chembl_target_file
+#
+#echo "target_chemblid,target_name" >${chembl_target_file}
+#coltags="target_chemblid target_name"
+#
+#csv_utils.py \
+#	--i ${chemblfile} \
+#	--subsetcols --coltags "$coltags" \
+#	|sed -e '1d' \
+#	|sort -u \
+#	>>${chembl_target_file}
+#
+csv_utils.py \
+	--i ${chemblfile} \
+	--extractcol \
+	--coltag "target_chemblid" \
+	| sort -u \
+	|grep '^CHEMBL' \
+	>data/chembl_target.id
+#
+# Produce file containing "targetType", to select "SINGLE PROTEIN" only.
+#
+chembl_query.py \
+	--get_tgtsummary \
+	--idfile data/chembl_target.id \
+	--o ${chembl_target_file}
+#

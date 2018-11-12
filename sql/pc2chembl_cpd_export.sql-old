@@ -1,0 +1,17 @@
+--
+SELECT
+	c.pubchem_sid AS "SID",
+	p.pubchem_compound_cid AS "CID",
+	u.inchikey,
+	u.chembl_id
+FROM
+	npcpd2.compound c,
+	npcpd2.pubchem_cid2inchi p,
+	npcpd2.unichem_inchi2chembl u
+WHERE
+	c.pubchem_cid::VARCHAR(16) = p.pubchem_compound_cid
+	AND p.pubchem_iupac_inchikey = u.inchikey
+ORDER BY
+	p.pubchem_compound_cid
+	;
+--

@@ -1,0 +1,46 @@
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix :      <#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix pav:   <http://purl.org/pav/> .
+@prefix freq:  <http://purl.org/cld/freq/> .
+@prefix bdb:   <http://vocabularies.bridgedb.org/ops#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<>      a                    void:DatasetDescription ;
+        dcterms:description  "The VoID description for the linkset between two data sources."@en ;
+        dcterms:issued       "2015-09-06T16:01:18.315Z"^^xsd:dateTime ;
+        dcterms:title        "Linkset Description"@en ;
+        pav:createdBy        <http://orcid.org/0000-0002-1476-6192> ;
+        pav:createdOn        "2015-09-06T16:01:18.315Z"^^xsd:dateTime ;
+        pav:createdWith      <http://voideditor.cs.man.ac.uk/> ;
+        foaf:primaryTopic    <http://www.openphacts.org/c403e0d9-21bc-4a7b-ae44-a945ab79e3db> .
+
+<http://orcid.org/0000-0002-1476-6192>
+        a                 foaf:Person ;
+        foaf:family_name  "Yang" ;
+        foaf:givenname    "Jeremy" ;
+        foaf:mbox         <mailto:jeremyjyang@gmail.com> .
+
+<http://www.openphacts.org/c403e0d9-21bc-4a7b-ae44-a945ab79e3db>
+        a                           void:Linkset ;
+        dcterms:accrualPeriodicity  "Annual" ;
+        dcterms:description         "-"@en ;
+        dcterms:issued              "2014-09-14T23:00:00.315Z"^^xsd:dateTime ;
+        dcterms:license             <http://creativecommons.org/licenses/by-sa/3.0/> ;
+        dcterms:publisher           <https://ncats.nih.gov/> ;
+        dcterms:title               ""@en ;
+        pav:contributedBy           <http://orcid.org/0000-0002-1476-6192> ;
+        pav:previousVersion         <https://ncats.nih.gov/expertise/preclinical/pd2> ;
+        void:dataDump               <https://ncats.nih.gov/expertise/preclinical/pd2> ;
+        void:linkPredicate          <http://www.w3.org/2004/02/skos/core#exactMatch> ;
+        void:objectsTarget          <https://github.com/openphacts/ops-platform-setup/raw/master/void/chembl-16.ttl#chembl_rdf_molecule_dataset> ;
+        void:subjectsTarget         <https://github.com/openphacts/ops-platform-setup/raw/master/void/chembl-16.ttl#chembl_rdf_molecule_dataset> ;
+        bdb:assertionMethod         <http://purl.obolibrary.org/obo/ECO_0000218> ;
+        bdb:linksetJustification    <http://semanticscience.org/resource/SIO_010004> ;
+        bdb:objectsDatatype         <http://semanticscience.org/resource/SIO_010004> ;
+        bdb:subjectsDatatype        <http://semanticscience.org/resource/SIO_010004> .

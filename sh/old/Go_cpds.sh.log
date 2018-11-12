@@ -1,0 +1,61 @@
++ csv_utils.py --i data/NCATS_cpds_w_metadata.csv --list_tags
+csv_utils.py: input file: data/NCATS_cpds_w_metadata.csv
+csv_utils.py: rows: 0
+csv_utils.py: rows out: 0
+csv_utils.py: output file: <stdout>
+1. "Serial No."
+2. "NCATS_Name"
+3. "OIDD_ID of Untitled 5"
+4. "Structure"
+5. "Trivial Name"
+6. "Drug DB name"
+7. "Drug DB CAS"
+8. "Name"
+9. "Old NCGC"
+10. "NPC Browser Name"
++ csv_utils.py --i data/NCATS_cpds_w_metadata.csv --counts
+csv_utils.py: input file: data/NCATS_cpds_w_metadata.csv
+csv_utils.py: rows: 2447
+csv_utils.py: rows out: 0
+csv_utils.py: output file: <stdout>
+1.               Serial No.: non-empty: 2446, empty:   1, total: 2447
+2.               NCATS_Name: non-empty: 2445, empty:   2, total: 2447
+3.    OIDD_ID of Untitled 5: non-empty: 2445, empty:   2, total: 2447
+4.                Structure: non-empty: 2446, empty:   1, total: 2447
+5.             Trivial Name: non-empty: 1891, empty: 556, total: 2447
+6.             Drug DB name: non-empty: 1901, empty: 546, total: 2447
+7.              Drug DB CAS: non-empty: 1900, empty: 547, total: 2447
+8.                     Name: non-empty: 1662, empty: 785, total: 2447
+9.                 Old NCGC: non-empty: 1913, empty: 534, total: 2447
+10.         NPC Browser Name: non-empty: 1878, empty: 569, total: 2447
++ rawsdf=data/npc-dump-1.2-04-25-2012.sdf
++ sdf2csv.py --i data/npc-dump-1.2-04-25-2012.sdf --truncate --o data/npc-dump-1.2-04-25-2012.csv
+........................................
+Total: 8027 mols processed.
+tags found: ['COLLECTION', 'CURATIONS', 'Synonyms', 'CompoundCAS', 'URL', 'ID', 'CompoundIndication', 'CompoundMOA', 'CompoundCID', 'CLINICALTRIALS', 'TARGETS', 'DOCUMENTS', 'CompoundSpectra', 'Wikipedia', 'CompoundUNII', 'CompoundDrugLabelRx', 'CompoundDrugLabelOtc']
+........................................
+Total: 8027 mols processed.
+sdf2csv.py: mols in: 8027  confs in: 8027  lines out: 8027
++ csv_utils.py --counts --i data/npc-dump-1.2-04-25-2012.csv
+csv_utils.py: input file: data/npc-dump-1.2-04-25-2012.csv
+csv_utils.py: rows: 8027
+csv_utils.py: rows out: 0
+csv_utils.py: output file: <stdout>
+1.                    Title: non-empty: 8026, empty:   1, total: 8027
+2.               COLLECTION: non-empty: 8026, empty:   1, total: 8027
+3.                CURATIONS: non-empty: 2068, empty: 5959, total: 8027
+4.                 Synonyms: non-empty: 8026, empty:   1, total: 8027
+5.              CompoundCAS: non-empty: 8001, empty:  26, total: 8027
+6.                      URL: non-empty: 4563, empty: 3464, total: 8027
+7.                       ID: non-empty: 8026, empty:   1, total: 8027
+8.       CompoundIndication: non-empty: 7213, empty: 814, total: 8027
+9.              CompoundMOA: non-empty: 3748, empty: 4279, total: 8027
+10.              CompoundCID: non-empty: 3203, empty: 4824, total: 8027
+11.           CLINICALTRIALS: non-empty: 980, empty: 7047, total: 8027
+12.                  TARGETS: non-empty: 1219, empty: 6808, total: 8027
+13.                DOCUMENTS: non-empty: 638, empty: 7389, total: 8027
+14.          CompoundSpectra: non-empty: 1491, empty: 6536, total: 8027
+15.                Wikipedia: non-empty: 1203, empty: 6824, total: 8027
+16.             CompoundUNII: non-empty: 1176, empty: 6851, total: 8027
+17.      CompoundDrugLabelRx: non-empty: 1118, empty: 6909, total: 8027
+18.     CompoundDrugLabelOtc: non-empty: 148, empty: 7879, total: 8027
