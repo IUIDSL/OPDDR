@@ -1,6 +1,6 @@
 # Code, scripts and artifacts from the Open Phenotypic Drug Discovery Resource (OPDDR).
 
-A collaboration between NCATS, Eli Lilly, Data2Discovery, Inc., and Indiana University.
+A collaboration between NCATS, Eli Lilly, Data2Discovery, Inc., and Indiana University (2015)
 
 ### See also:
 
@@ -101,17 +101,17 @@ one source only.
 
 | file | source | description |
 |---|---|
-| npcpd2_assay.ttl | OPDDR | Assay links to OIDD namespace.  `bioassay:AID1117326 skos:exactMatch oidd_assay:4` |
-| npcpd2_bao.ttl | OPDDR | Manually curated BAO classifications.  `bioassay:AID1117352 rdf:type bao:BAO_0000219` |
-| npcpd2_substance.ttl | OPDDR | Substance links to NCATS namespace.  `substance:SID170465644 skos:exactMatch ncats_sample:NCGC00160518­03` |
-| bao_vocabulary_assay.owl | BAO | BAO module with bioassay class hierarchy. |
-| pubchem_vocabulary.owl | PubChem | PubChem module with bioactivity terms etc. |
-| pubchem_pd2_assay.ttl | PubChem | PubChem RDF, includes titles, measuregroups.  `bioassay:AID1117356 bao:BAO_0000209 measuregroup:AID1117356 bioassay:AID1117351 dcterms:title "Increased HeLa cells with 4N DNA content­IC50"@en` |
-| pubchem_pd2_substance.ttl | PubChem | PubChem RDF, includes CIDs, measuregroups.  `substance:SID124882766 obo:BFO_0000056 measuregroup:AID1117326 .  endpoint:SID124882766_AID1117342 obo:IAO_0000136 substance:SID124882766 .` |
-| pubchem_pd2_endpoint.ttl | PubChem | PubChem RDF, includes endpoints, activity results.  `endpoint:SID170464708_AID1117354 obo:IAO_0000136 substance:SID170464708 ; vocabulary:PubChemAssayOutcome vocabulary:inactive .  measuregroup:AID1117354 obo:OBI_0000299 endpoint:SID170464708_AID1117354 .` |
-| chembl_cco.ttl | ChEMBL | ChEMBL Core Ontology |
-| chembl_target.ttl | ChEMBL | ChEMBL protein targets.  `chembl_target:CHEMBL2366239 a cco:SingleProtein ; dcterms:title "KLE"` |
-| chembl_rdf_activity.ttl | ChEMBL | PubChem substance links to ChEMBL molecules, activities, assays, targets, target components, Uniprots.  `substance:SID170466134 skos:exactMatch chembl_molecule:CHEMBL1230222 chembl_molecule:CHEMBL44884 cco:hasActivity chembl_activity:CHEMBL_ACT_7667167 .  chembl_target:CHEMBL218 cco:hasAssay chembl_assay:CHEMBL1909122 .  chembl_target:CHEMBL218 cco:hasTargetComponent chembl_targetcmpt:CHEMBL_TC_172 .  chembl_targetcmpt:CHEMBL_TC_172 cco:targetCmptXref uniprot:P21554 .  uniprot:P21554 a cco:UniprotRef .`  |
+| npcpd2\_assay.ttl | OPDDR | Assay links to OIDD namespace.  `bioassay:AID1117326 skos:exactMatch oidd_assay:4` |
+| npcpd2\_bao.ttl | OPDDR | Manually curated BAO classifications.  `bioassay:AID1117352 rdf:type bao:BAO_0000219` |
+| npcpd2\_substance.ttl | OPDDR | Substance links to NCATS namespace.  `substance:SID170465644 skos:exactMatch ncats_sample:NCGC00160518­03` |
+| bao\_vocabulary_assay.owl | BAO | BAO module with bioassay class hierarchy. |
+| pubchem\_vocabulary.owl | PubChem | PubChem module with bioactivity terms etc. |
+| pubchem\_pd2\_assay.ttl | PubChem | PubChem RDF, includes titles, measuregroups.  `bioassay:AID1117356 bao:BAO_0000209 measuregroup:AID1117356 bioassay:AID1117351 dcterms:title "Increased HeLa cells with 4N DNA content­IC50"@en` |
+| pubchem\_pd2\_substance.ttl | PubChem | PubChem RDF, includes CIDs, measuregroups.  `substance:SID124882766 obo:BFO_0000056 measuregroup:AID1117326 .  endpoint:SID124882766_AID1117342 obo:IAO_0000136 substance:SID124882766 .` |
+| pubchem\_pd2\_endpoint.ttl | PubChem | PubChem RDF, includes endpoints, activity results.  `endpoint:SID170464708_AID1117354 obo:IAO_0000136 substance:SID170464708 ; vocabulary:PubChemAssayOutcome vocabulary:inactive .  measuregroup:AID1117354 obo:OBI_0000299 endpoint:SID170464708_AID1117354 .` |
+| chembl\_cco.ttl | ChEMBL | ChEMBL Core Ontology |
+| chembl\_target.ttl | ChEMBL | ChEMBL protein targets.  `chembl_target:CHEMBL2366239 a cco:SingleProtein ; dcterms:title "KLE"` |
+| chembl\_rdf\_activity.ttl | ChEMBL | PubChem substance links to ChEMBL molecules, activities, assays, targets, target components, Uniprots.  `substance:SID170466134 skos:exactMatch chembl_molecule:CHEMBL1230222 chembl_molecule:CHEMBL44884 cco:hasActivity chembl_activity:CHEMBL_ACT_7667167 .  chembl_target:CHEMBL218 cco:hasAssay chembl_assay:CHEMBL1909122 .  chembl_target:CHEMBL218 cco:hasTargetComponent chembl_targetcmpt:CHEMBL_TC_172 .  chembl_targetcmpt:CHEMBL_TC_172 cco:targetCmptXref uniprot:P21554 .  uniprot:P21554 a cco:UniprotRef .`  |
 
 
 ## Project Status, Future
@@ -132,5 +132,3 @@ Refs/links:
  - http://www.obofoundry.org/
  - http://semanticscience.org/
 
-
-Oct 18, 2015
