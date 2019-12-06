@@ -1,4 +1,4 @@
-# Code, scripts and artifacts from the Open Phenotypic Drug Discovery Resource (OPDDR).
+# `OPDDR`: Code, scripts and artifacts from the Open Phenotypic Drug Discovery Resource (OPDDR).
 
 A collaboration between NCATS, Eli Lilly, Data2Discovery, Inc., and Indiana University (2015)
 
@@ -7,6 +7,11 @@ A collaboration between NCATS, Eli Lilly, Data2Discovery, Inc., and Indiana Univ
  * [NIH NCATS Phenotypic Drug Discovery Resource](https://ncats.nih.gov/expertise/preclinical/pd2)
  * [Novel Phenotypic Outcomes Identified for a Public Collection of Approved Drugs from a Publicly Accessible Panel of Assays, JA Lee et al., Published: July 15, 2015](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130796)
  * [NIH NCATS Public GitLab: DATA](https://spotlite.nih.gov/ncats/opdsr)
+ * [PubChem data source established for this project](https://pubchem.ncbi.nlm.nih.gov/source/846)
+ * [PubChem Summary BioAssay](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117321)
+ * [PubChem BioAssays (35 + summary)](https://www.ncbi.nlm.nih.gov/pcassay?term=%22Cheminformatics%20%26%20Chemogenomics%20Research%20Group%20%29CCRG%29%2C%20Indiana%20University%20School%20of%20Informatics%22%5BSourceName%5D%20hasnohold%5Bfilt%5D)
+
+ * PubChem BioAssays: [1117322](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117322), [1117323](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117323), [1117324](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117324), [1117325](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117325), [1117326](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117326), [1117327](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117327), [1117328](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117328), [1117329](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117329), [1117330](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117330), [1117331](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117331), [1117332](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117332), [1117333](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117333), [1117334](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117334), [1117335](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117335), [1117336](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117336), [1117337](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117337), [1117338](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117338), [1117339](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117339), [1117340](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117340), [1117341](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117341), [1117342](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117342), [1117343](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117343), [1117344](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117344), [1117345](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117345), [1117346](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117346), [1117347](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117347), [1117348](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117348), [1117349](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117349), [1117350](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117350), [1117351](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117351), [1117352](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117352), [1117353](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117353), [1117354](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117354), [1117355](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117355), [1117356](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117356), [1117321](https://pubchem.ncbi.nlm.nih.gov/bioassay/1117321) _(summary)_
 
 ## Knowledge Network Description
 
@@ -125,10 +130,10 @@ and derive high value from the unique knowledge of domain specialists and facili
 
 Refs/links:
 
- - https://ncats.nih.gov/expertise/preclinical/pd2
- - https://pubchem.ncbi.nlm.nih.gov/rdf/
- - http://bioassayontology.org/
- - https://www.ebi.ac.uk/rdf/
- - http://www.obofoundry.org/
- - http://semanticscience.org/
+ - <https://ncats.nih.gov/expertise/preclinical/pd2>
+ - <https://pubchem.ncbi.nlm.nih.gov/rdf/>
+ - <http://bioassayontology.org/>
+ - <https://www.ebi.ac.uk/rdf/>
+ - <http://www.obofoundry.org/>
+ - <http://semanticscience.org/>
 
